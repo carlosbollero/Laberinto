@@ -1,4 +1,4 @@
 Laberinto
 =========
 
-TP1 Algoritmos II - FIUBA
+TP1 - Algoritmos II - FIUBA
