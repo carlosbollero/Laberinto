@@ -9,7 +9,7 @@
 
 class LectorArchivo{
 private:
-	string ruta, nombre, linea;
+	string* ruta,* nombre,* linea;
 	Tarchivo* ptrArchivo;
 
 public:
@@ -19,7 +19,7 @@ public:
 	 * 		archivo.
 	 *		Apunta "ptrArchivo" al archivo de texto.
 	 */
-	LectorArchivo();
+	LectorArchivo(string, string);
 	/* Destructor.
 	 */
 	~LectorArchivo();

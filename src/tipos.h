@@ -5,6 +5,8 @@
  ******************************************************************************/
 
 #include <string>
-#include <fstream> 
+#include <fstream>
+
+using namespace std;
 
 typedef fstream Tarchivo;

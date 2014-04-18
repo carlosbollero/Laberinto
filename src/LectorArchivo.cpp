@@ -9,13 +9,15 @@
 LectorArchivo::LectorArchivo(string ruta, string nombre){
 	this-> ruta = new string;
 	this-> nombre = new string;
+	this-> linea = 0;
+	this-> ptrArchivo = 0;
 }
 
 LectorArchivo::~LectorArchivo(){
 
 }
 
-string LectorArchivo::getRuta(){
+/*string LectorArchivo::getRuta(){
 	return ruta->;
 }
 
@@ -25,4 +27,4 @@ string LectorArchivo::getNombre(){
 
 string LectorArchivo::getLinea(){
 
-}
+}*/
