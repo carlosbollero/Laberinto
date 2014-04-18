@@ -1,13 +1,20 @@
 /******************************************************************************
  *                                                                            *
- *                        Definición de tipos de datos                        *
+ *                     Implementación clase Interacción                       *
  *                                                                            *
  ******************************************************************************/
 
-#include <iostream>
-#include <string>
-#include <fstream>
 
-using namespace std;
 
-typedef fstream Tarchivo;
+#include "Interacción.h"
+
+
+string Interaccion::getRuta(){
+	string ruta;
+	cout << "Ingrese la ruta del archivo de texto" << endl;
+	cin.getline() >> ruta;
+}
+
+string Interaccion::getNombre(){
+
+}

@@ -1,0 +1,32 @@
+PP 255 0 0
+GS
+A 5
+L moneda
+GE
+A 7
+GS
+A 3
+L moneda
+A 1
+BO bifurcacion1
+A 2
+GO
+A 5
+T moneda
+A 3
+BS bifurcacion2
+A 2
+BN bifurcacion3
+A 1
+GS
+A 2
+GE
+A 3
+GN
+A 1
+U bifurcacion2
+GO
+A 2
+GN
+A 3
+PLL
