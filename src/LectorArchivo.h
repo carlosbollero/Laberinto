@@ -23,18 +23,18 @@ public:
 	/* Destructor.
 	 */
 	~LectorArchivo();
-	
+
 	/* post: Devuelve la la ubicación del archivo de texto.
 	 */
 	string getRuta();
 
+	/* pre:
+	 * post: Devuelve el nombre del archivo de texto.
+	 */
 	string getNombre();
 	/* pre: el archivo debe estar abierto para lectura.
 	 * post: devuelve el texto contenido en la linea actual y deja apuntada la 
 	 * 		siguiente linea.
 	 */
 	string getLinea(Tarchivo* archivo);
-
-
-	void
 };
