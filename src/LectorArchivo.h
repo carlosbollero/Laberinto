@@ -9,8 +9,8 @@
 
 class LectorArchivo{
 private:
-	string* ruta,* nombre,* linea;
-	Tarchivo* ptrArchivo;
+	string ruta, nombre, linea;
+	Tarchivo* archivo;
 
 public:
 	/* pre: El nombre y la ubicación del archivo se suponen válidos.
@@ -19,7 +19,7 @@ public:
 	 * 		archivo.
 	 *		Apunta "ptrArchivo" al archivo de texto.
 	 */
-	LectorArchivo(string, string);
+	LectorArchivo(string ruta, string nombre);
 	/* Destructor.
 	 */
 	~LectorArchivo();
@@ -36,5 +36,5 @@ public:
 	 * post: devuelve el texto contenido en la linea actual y deja apuntada la 
 	 * 		siguiente linea.
 	 */
-	string getLinea(Tarchivo* archivo);
+	string getLinea();
 };

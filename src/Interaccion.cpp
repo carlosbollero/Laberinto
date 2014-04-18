@@ -6,15 +6,16 @@
 
 
 
-#include "Interacción.h"
+#include "Interaccion.h"
 
 
-string Interaccion::getRuta(){
+string Interaccion::ingresoRuta(){
 	string ruta;
 	cout << "Ingrese la ruta del archivo de texto" << endl;
-	cin.getline() >> ruta;
+	cin >> ruta;
+	return ruta;
 }
 
-string Interaccion::getNombre(){
-
-}
+/*string Interaccion::getNombre(){
+	return 0;
+}*/

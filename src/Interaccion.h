@@ -15,10 +15,10 @@ public:
 	~Interaccion();
 	/*pre:
 	 *post: Devuelve la ruta del archivo establecida por el usuario. */
-	string getRuta();
+	string ingresoRuta();
 
-	/*pre:
-	 *post: Devuelve el ombre del archivo establecido por el usuario. */
-	string getNombre()
-	
+/*	pre:
+	 *post: Devuelve el ombre del archivo establecido por el usuario. 
+	string getNombre();
+	*/
 };

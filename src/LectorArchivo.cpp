@@ -7,14 +7,14 @@
 #include "LectorArchivo.h"
 
 LectorArchivo::LectorArchivo(string ruta, string nombre){
-	this-> ruta = new string;
-	this-> nombre = new string;
-	this-> linea = 0;
-	this-> ptrArchivo = 0;
+	this-> ruta = ruta;
+	this-> nombre = nombre;
+
+	this-> archivo->open(this-> ruta, ios::in);
 }
 
 LectorArchivo::~LectorArchivo(){
-
+	this-> archivo-> close();
 }
 
 /*string LectorArchivo::getRuta(){
@@ -24,7 +24,9 @@ LectorArchivo::~LectorArchivo(){
 string LectorArchivo::getNombre(){
 
 }
+*/
 
 string LectorArchivo::getLinea(){
-
-}*/
+	getline (*archivo,linea);
+	return this-> linea;
+}
