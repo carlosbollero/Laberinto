@@ -23,7 +23,9 @@ public:
 	/* Destructor.
 	 */
 	~LectorArchivo();
-
+	
+	/* post: Devuelve la la ubicación del archivo de texto.
+	 */
 	string getRuta();
 
 	string getNombre();
