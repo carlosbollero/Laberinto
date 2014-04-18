@@ -13,6 +13,8 @@ public:
 	 * 		archivo.
 	 */
 	LectorArchivo();
+	/* Destructor.
+	 */
 	~LectorArchivo();
 	/* pre: el archivo debe estar abierto para lectura.
 	 * post: devuelve el texto contenido en la linea actual y deja apuntada la 
