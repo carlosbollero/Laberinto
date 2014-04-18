@@ -6,7 +6,7 @@
  */
 
 #include "../EasyBMP_1.06/EasyBMP.h"
- #include "tipos.h"
+#include "tipos.h"
 
 int  main(){
 
