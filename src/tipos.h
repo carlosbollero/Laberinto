@@ -7,4 +7,4 @@
 #include <string>
 #include <fstream> 
 
-typedef fstream Tarchivo;
+typedef ifstream Tarchivo;
