@@ -9,32 +9,35 @@
 
 class LectorArchivo{
 private:
-	string ruta, nombre, linea;
+	string ruta, linea, palabra;
 	Tarchivo* archivo;
 
 public:
-	/* pre: El nombre y la ubicación del archivo se suponen válidos.
-	 * post: Deja inicializado "linea" con la primer linea del archivo, 
-	 * 		"nombre" con el nombre del archivo y "ruta" con la ubicación del 
-	 * 		archivo.
-	 *		Apunta "ptrArchivo" al archivo de texto.
+	/* Pre: El nombre y la ubicación del archivo se suponen válidos.
+	 * Post: Asigna a "ruta" la ubicación del archivo de texto. Abre el archivo
+	 * para su posterior lectura.
 	 */
-	LectorArchivo(string ruta, string nombre);
-	/* Destructor.
+	LectorArchivo(string ruta);
+
+	/* Pre: 
+	 * Post: Se cierra el archivo de texto y se elimina su referencia a memoria
 	 */
 	~LectorArchivo();
 
-	/* post: Devuelve la la ubicación del archivo de texto.
+	/* Post: Devuelve la la ubicación del archivo de texto.
 	 */
 	string getRuta();
 
-	/* pre:
-	 * post: Devuelve el nombre del archivo de texto.
-	 */
-	string getNombre();
-	/* pre: el archivo debe estar abierto para lectura.
-	 * post: devuelve el texto contenido en la linea actual y deja apuntada la 
+	string getPalabra();
+
+	/* Pre: el archivo debe estar abierto para lectura.
+	 * Post: devuelve el texto contenido en la linea actual y deja apuntada la 
 	 * 		siguiente linea.
 	 */
 	string getLinea();
+
+	/* Pre:
+	 * Post: Devuelve si se llegó al final del archivo.
+	 */
+	bool finArchivo();
 };

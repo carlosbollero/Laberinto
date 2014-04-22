@@ -10,4 +10,4 @@
 
 using namespace std;
 
-typedef fstream Tarchivo;
+typedef ifstream Tarchivo;
