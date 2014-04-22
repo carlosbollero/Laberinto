@@ -24,17 +24,12 @@ string LectorArchivo::getRuta(){
 }
 
 string LectorArchivo::getPalabra(){
-	// char* palabra;
-	// palabra = new char[10];
-	// this-> archivo-> get(this-> palabra.c_str(),' ');
-
-	
-
+	getline (*archivo,this-> palabra,' ');
 	return this-> palabra;
 }
 
 string LectorArchivo::getLinea(){
-	getline (*archivo,linea);
+	getline (*archivo,this-> linea);
 	return this-> linea;
 }
 

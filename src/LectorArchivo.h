@@ -15,29 +15,27 @@ private:
 public:
 	/* Pre: El nombre y la ubicación del archivo se suponen válidos.
 	 * Post: Asigna a "ruta" la ubicación del archivo de texto. Abre el archivo
-	 * para su posterior lectura.
-	 */
+	 * para su posterior lectura. */
 	LectorArchivo(string ruta);
 
 	/* Pre: 
-	 * Post: Se cierra el archivo de texto y se elimina su referencia a memoria
-	 */
+	 * Post: Cierra el archivo de texto y elimina su referencia a memoria. */
 	~LectorArchivo();
 
-	/* Post: Devuelve la la ubicación del archivo de texto.
-	 */
+	/* Post: Devuelve la la ubicación del archivo de texto. */
 	string getRuta();
 
+	/* Pre: El archivo debe estar abierto para lectura.
+	 * Post: Devuelve el texto contenido en la linea actual hasta un espacio en
+	 * blanco y deja apuntada la siguiente linea. */
 	string getPalabra();
 
-	/* Pre: el archivo debe estar abierto para lectura.
-	 * Post: devuelve el texto contenido en la linea actual y deja apuntada la 
-	 * 		siguiente linea.
-	 */
+	/* Pre: El archivo debe estar abierto para lectura.
+	 * Post: Devuelve el texto contenido en la linea actual y deja apuntada la 
+	 * siguiente linea. */
 	string getLinea();
 
 	/* Pre:
-	 * Post: Devuelve si se llegó al final del archivo.
-	 */
+	 * Post: Devuelve si se llegó al final del archivo. */
 	bool finArchivo();
 };
