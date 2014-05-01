@@ -24,34 +24,39 @@ public:
 	 * Post:  */
 	~Personaje();
     /* Pre: 
-     * Post: La orientacion del personaje */
+     * Post: La orientacion del personaje queda modificada a la nueva orientación */
     void girar(char orientacion);
 	/* Pre: 
-	 * Post:  */
+	 * Post: Se crea una posicion nueva y se actualiza posicionActual a la nueva
+     * posición, tantas veces como cantidad lo indique. */
 	void avanzar(unsigned int cantidad);
-    /* Pre: 
-     * Post:  */
-    void unir();
+    /* Pre: La posicionAUnir debe ser una posición por la que ya se haya pasado
+     * y debe estar marcada como tal.
+     * Post: Se apunta a esta nueva posición y se actualiza posicionActual( se
+     * avanza un paso). */
+    void unir(Posicion* posicionAUnir);
 	/* Pre: 
 	 * Post:  */
     // void retroceder();
     /* Pre: 
-     * Post:  */
+     * Post: Queda creado un nuevo elemento con el nobre del argumento y se 
+     * agrega a la mochila. */
     void levantarElemento(string elemento);
-    /* Pre: 
-     * Post:  */
+    /* Pre: La mochila debe contener al elemento.
+     * Post: Se elimina el elemento de la mochila y se lo agrega a la posicion
+     * actual. */
     void tirarElemento();
     /* Pre: 
      * Post:  */
     //   Elemento* buscarElemento(string elemento);
     /* Pre: 
-     * Post:  */
+     * Post: Devuelve un puntero a donde se encuentra el personaje. */
     Posicion* getPosicionActual();
     /* Pre: 
      * Post:  */
     // bool validarOrientacion();
     /* Pre: 
-     * Post:  */
+     * Post: Marca en la posicion actual, una bifurcacion y su sentido. */
     void marcarBifurcacion();
 
 };
