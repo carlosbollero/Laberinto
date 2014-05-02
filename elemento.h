@@ -12,7 +12,8 @@ class Elemento {
         Elemento* siguiente;
 
     public:
-        Elemento (string nombre, int cantidadinicial);
+        //Elemento (string nombre, int cantidadinicial);
+        Elemento (string nombre);
         int getCantidad ();
         string getNombre ();
         void setSiguiente (Elemento* elementoSiguiente);
