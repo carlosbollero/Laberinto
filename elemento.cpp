@@ -4,10 +4,17 @@
 
 using namespace std;
 
-/* Constructor de la clase Elemento, recibe la palabra y la cantidad inicial */
-Elemento::Elemento (string nombre, int cantidadinicial) {
+/* Constructor de la clase Elemento, recibe la palabra y la cantidad inicial
+   Mohamed: Corrección, el constructor solo recibe el nombre, el elemento se inicializa en 1.
+
+*/
+
+
+//Elemento::Elemento (string nombre, int cantidadinicial) {
+Elemento::Elemento (string nombre){
     this->nombre = nombre;
-    this->cantidad = cantidadinicial;
+    //this->cantidad = cantidadinicial;
+    this->cantidad = 1;
     this->siguiente = NULL;
 }
 
@@ -37,4 +44,3 @@ Elemento* Elemento::getSiguiente() {
 void Elemento::sumarCantidad(int nuevoselementos) {
     this->cantidad += nuevoselementos;
 }
-
