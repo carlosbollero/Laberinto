@@ -47,7 +47,9 @@ class Mochila
 
         /*
 			Pre: Ninguna.
-			Post: Retorna la cantidad de elementos en la mochila.
+			Post: Retorna la cantidad de elementos (Clases de elementos) en la mochila.
+                  Ej. Hay 10 Espadas y 5 Escudos en la mochila, el valor de retorno es 2 pues la Mochila
+                  contiene los elementos tipo 'Espada' y 'Escudo' sin importar la cantidad de cada uno.
 		*/
         int obtenerCantidad();
 
