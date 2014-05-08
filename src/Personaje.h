@@ -30,16 +30,13 @@ public:
 	 * Post: Se crea una posicion nueva y se actualiza posicionActual a la nueva
      * posición, tantas veces como cantidad lo indique. */
 	void avanzar(unsigned int cantidad);
-    /* Pre: La posicionAUnir debe ser una posición por la que ya se haya pasado
-     * y debe estar marcada como tal.
-     * Post: Se apunta a esta nueva posición y se actualiza posicionActual( se
-     * avanza un paso). */
+    /* Pre: Hace la unión de dos bifurcaciones dentro del mismo camino. 
+     * La posicionAUnir debe ser una posición por la que ya se haya pasado y 
+     * debe estar marcada como tal.
+     * Post: Se avanza a la posición unida. */
     void unir(Posicion* posicionAUnir);
-	/* Pre: 
-	 * Post:  */
-    // void retroceder();
     /* Pre: 
-     * Post: Queda creado un nuevo elemento con el nobre del argumento y se 
+     * Post: Queda creado un nuevo elemento con el nombre del argumento y se 
      * agrega a la mochila. */
     void levantarElemento(string elemento);
     /* Pre: La mochila debe contener al elemento.
@@ -52,9 +49,6 @@ public:
     /* Pre: 
      * Post: Devuelve un puntero a donde se encuentra el personaje. */
     Posicion* getPosicionActual();
-    /* Pre: 
-     * Post:  */
-    // bool validarOrientacion();
     /* Pre: 
      * Post: Marca en la posicion actual, una bifurcacion y su sentido. */
     void marcarBifurcacion();

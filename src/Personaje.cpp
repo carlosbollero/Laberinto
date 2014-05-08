@@ -22,32 +22,58 @@ void Personaje::girar(char orientacion){
 }
 
 void Personaje::avanzar(unsigned int cantidad){
+	if (this-> posicionActual == 0){
+		Posicion* nuevaPosicion = new Posicion;
+		this-> camino-> puntoInicial = nuevaposicion;
+		this-> posicionActual = nuevaposicion;
+		--cantidad;
+	}
 	switch (this-> orientacion){
 		case 'N':
-			for (unsigned int i = 1; i <= cantidad; i++){
-				Posicion* nuevaposicion = new Posicion;
-				this-> posicionActual-> setSiguienteNorte(nuevaPosicion);
+			if (this-> posicionActual-> getSiguienteNorte() == 0){
+				for (unsigned int i = 1; i <= cantidad; i++){
+					Posicion* nuevaposicion = new Posicion;
+					this-> posicionActual-> setSiguienteNorte(nuevaPosicion);
+					this-> posicionActual-> getSiguienteNorte()-> setSiguienteSur(this->posicionActual);
+					this-> posicionActual = this->posicionActual-> getSiguienteNorte();
+				}
+			}else{
 				this-> posicionActual = this->posicionActual-> getSiguienteNorte();
 			}
 		break;
 		case 'S':
-			for (unsigned int i = 1; i <= cantidad; i++){
-				Posicion* nuevaposicion = new Posicion;
-				this-> posicionActual-> setSiguienteSur(nuevaPosicion);
+			if (this-> posicionActual-> getSiguienteSur() == 0){
+				for (unsigned int i = 1; i <= cantidad; i++){
+					Posicion* nuevaposicion = new Posicion;
+					this-> posicionActual-> setSiguienteSur(nuevaPosicion);
+					this-> posicionActual-> getSiguienteSur()-> setSiguienteNorte(this->posicionActual);
+					this-> posicionActual = this->posicionActual-> getSiguienteSur();
+				}
+			}else{
 				this-> posicionActual = this->posicionActual-> getSiguienteSur();
 			}
 		break;
 		case 'E':
-			for (unsigned int i = 1; i <= cantidad; i++){
-				Posicion* nuevaposicion = new Posicion;
-				this-> posicionActual-> setSiguienteEste(nuevaPosicion);
+			if (this-> posicionActual-> getSiguienteEste() == 0){
+				for (unsigned int i = 1; i <= cantidad; i++){
+					Posicion* nuevaposicion = new Posicion;
+					this-> posicionActual-> setSiguienteEste(nuevaPosicion);
+					this-> posicionActual-> getSiguienteEste()-> setSiguienteOeste(this->posicionActual);
+					this-> posicionActual = this->posicionActual-> getSiguienteEste();
+				}
+			}else{
 				this-> posicionActual = this->posicionActual-> getSiguienteEste();
 			}
 		break;
 		case 'O':
-			for (unsigned int i = 1; i <= cantidad; i++){
-				Posicion* nuevaposicion = new Posicion;
-				this-> posicionActual-> setSiguienteOeste(nuevaPosicion);
+			if (this-> posicionActual-> getSiguienteOeste() == 0){
+				for (unsigned int i = 1; i <= cantidad; i++){
+					Posicion* nuevaposicion = new Posicion;
+					this-> posicionActual-> setSiguienteOeste(nuevaPosicion);
+					this-> posicionActual-> getSiguienteOeste()-> setSiguienteEste(this->posicionActual);
+					this-> posicionActual = this->posicionActual-> getSiguienteOeste();
+				}
+			}else{
 				this-> posicionActual = this->posicionActual-> getSiguienteOeste();
 			}
 		break;
