@@ -1,0 +1,231 @@
+------------------------Verde------------------------
+PP 34  177  76
+GS
+A 30
+L Moneda
+A 30
+PLL
+------------------------Rojo------------------------
+PP 237 28 36
+GO
+A 11
+GS
+A 8
+BO ROJO-NARANJA-1
+A 7
+GE
+A 15
+BN ROJO-AZUL-1
+A 3
+GS
+A 5
+GE
+L Palo
+A 10
+GS
+A 3
+BO ROJO-NARANJA-2
+A 4
+BO ROJO-ROSA-1
+A 2
+GO
+A 2
+T Palo
+A 10
+BN ROJO-AZUL-2
+A 12
+BN ROJO-ROSA-2
+A 18
+GS
+A 7
+PLL
+------------------------AZUL------------------------
+PP 0 162 232
+GO
+A 21
+GS
+A 7
+L Piedra
+A 2
+GO
+A 8
+GN
+A 4
+GO
+A 10
+GS
+A 5
+GO
+A 8
+GS
+A 5
+U ROJO-AZUL-1
+GE
+A 3
+GS
+A 5
+GE
+L Palo
+A 10
+GS
+A 3
+BO ROJO-NARANJA-2
+A 4
+BO ROJO-ROSA-1
+A 2
+GO
+A 2
+T Palo
+A 10
+BN ROJO-AZUL-2
+GN
+A 4
+GO
+A 3
+L Celular
+A 1
+L Ficha
+A 1
+L Gerra
+A 14
+BS AZUL-ROSA-1
+A 7
+GN
+A 4
+GO
+A 10
+BN AZUL-ROSA-2
+A 4
+GS
+A 3
+GO
+A 1
+GS
+A 5
+L Lapiz
+A 20
+T Ficha
+A 5
+T Gerra
+A 7
+GO
+A 9
+GS
+A 3
+PLL
+------------------------Naranja------------------------
+PP 255 159 63
+GE
+A 4
+GS
+A 14
+GE
+A 12
+U ROJO-NARANJA-1
+GS
+A 7
+GE
+A 15
+BN ROJO-AZUL-1
+A 3
+GS
+A 5
+GE
+L Palo
+A 10
+GS
+A 3
+GE
+A 9
+BS NARANJA-ROSA-1
+A 12
+GS
+A 25
+GO
+A 20
+GN
+A 6
+GE
+A 8
+GN
+A 6
+GO
+A 45
+GS
+A 10
+GE
+A 12
+GS
+A 1
+GE 
+A 9
+GS
+A 2
+BE NARANJA-ROSA-2
+A 2
+PLL
+------------------------ROSA------------------------
+PP 255 174 201
+GS
+A 11
+GE
+L Moneda
+A 7
+GS
+A 10
+GE
+A 1
+GS
+A 5
+U AZUL-ROSA-2
+GE
+A 10
+GS
+A 4
+GE
+A 7
+GS
+A 2
+GE
+A 7
+GS
+A 1
+U ROJO-ROSA-2
+GE
+A 24
+GN
+A 2
+GE
+A 9
+GN
+A 3
+U NARANJA-ROSA-1
+GE
+A 12
+GS
+A 25
+GO
+A 20
+GN
+A 6
+GE
+A 8
+GN
+A 6
+GO
+A 45
+GS
+A 10
+GE
+A 12
+GS
+A 1
+GE 
+A 9
+GS
+A 2
+GE
+A 5
+GS
+A 2
+PLL

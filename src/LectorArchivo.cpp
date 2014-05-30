@@ -11,7 +11,7 @@ LectorArchivo::LectorArchivo(string ruta){
 
 	this-> archivo = new Tarchivo;
 
-	this-> archivo->open(this-> ruta.c_str());
+	this-> archivo-> open(this-> ruta.c_str());
 }
 
 LectorArchivo::~LectorArchivo(){
@@ -24,7 +24,11 @@ string LectorArchivo::getRuta(){
 }
 
 string LectorArchivo::getPalabra(){
-	getline (*archivo,this-> palabra,' ');
+    *archivo >> this->palabra;
+	if (this-> esComentario()){
+		*archivo >> this->palabra;
+	}
+	//cout << this-> palabra << endl;
 	return this-> palabra;
 }
 
@@ -34,5 +38,9 @@ string LectorArchivo::getLinea(){
 }
 
 bool LectorArchivo::finArchivo(){
-	return (archivo-> eof());
+	return (this-> archivo-> eof());
+}
+
+bool LectorArchivo::esComentario(){
+	return (this-> palabra[0] == '-');
 }

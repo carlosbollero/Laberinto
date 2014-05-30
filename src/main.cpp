@@ -1,16 +1,12 @@
-/*
- * main.cpp
- *
- *  Created on: 17/04/2014
- *      Author: carlos
- */
+#include <iostream>
+#include "Laberinto.h"
+using namespace std;
 
-#include "../EasyBMP_1.06/EasyBMP.h"
-#include "tipos.h"
+int main(){
 
-int  main(){
-
-
-
-	return 0;
+    Laberinto laberinto;
+    laberinto.operar();
+    laberinto.imprimirMapa();
+    laberinto.generarInforme();
+    return 0;
 }
