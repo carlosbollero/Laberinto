@@ -7,7 +7,6 @@
 #ifndef TIPOS_H
 #define TIPOS_H
 
-
 #include <iostream>
 #include <stdlib.h>
 #include <string>

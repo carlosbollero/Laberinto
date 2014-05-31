@@ -1,5 +1,5 @@
-#include <iostream>
 #include "Camino.h"
+//#include <iostream>
 
 using namespace std;
 
@@ -16,7 +16,7 @@ Camino::Camino(int R, int G, int B){
     this->yminimo = 0;
     this->ymaximo = 0;
     this->longitud = 0;
-    this->identificador = "";
+    //this->identificador = "";
 }
 
 Camino::~Camino (){
@@ -29,27 +29,18 @@ Camino::~Camino (){
 }
 
 void Camino::compararCoordenadas(Posicion* posicionDeReferencia){
-
     if (posicionDeReferencia->obtenerCoordX() < xminimo->obtenerCoordX()){
             this->xminimo = posicionDeReferencia;
-
     }
-
     if(posicionDeReferencia->obtenerCoordX() > xmaximo->obtenerCoordX()){
             this->xmaximo = posicionDeReferencia;
-
     }
-
     if(posicionDeReferencia->obtenerCoordY() < yminimo->obtenerCoordY()){
             this->yminimo = posicionDeReferencia;
-
     }
-
     if(posicionDeReferencia->obtenerCoordY() > ymaximo->obtenerCoordY()){
         this->ymaximo = posicionDeReferencia;
-
     }
-
 }
 
 void Camino::calcularCoordenadas(char orientacion, int &coordenadaX, int &coordenadaY){
@@ -70,20 +61,15 @@ void Camino::calcularCoordenadas(char orientacion, int &coordenadaX, int &coorde
 }
 
 void Camino::agregarPosicion(char orientacion){
-
     int x = 0, y = 0;
-
-    NodoCamino* nuevoNodo = new NodoCamino(x, y, this->identificador);
-
+    NodoCamino* nuevoNodo = new NodoCamino(x, y);
     if (this->caminoVacio()){
-
         this->primero = nuevoNodo;
         this->ultimo = nuevoNodo;
         this->xminimo = nuevoNodo->getDato();
         this->xmaximo = nuevoNodo->getDato();
         this->yminimo = nuevoNodo->getDato();
         this->ymaximo = nuevoNodo->getDato();
-
     }
     else{
             this-> iniciarCursor();
@@ -102,7 +88,6 @@ void Camino::agregarPosicion(char orientacion){
             nuevoNodo->setAnterior(cursor);
             this->ultimo = nuevoNodo;
     }
-
     this->longitud++;
 }
 
@@ -127,7 +112,6 @@ unsigned int Camino::obtenerAnchoTotal(){
 }
 
 unsigned int Camino::obtenerLargoTotal(){
-
     int mayor = obtenerYMaximo();
     int menor = obtenerYMinimo();
     int resultado = mayor-menor;
@@ -168,35 +152,28 @@ int Camino::obtenerTamanio(){
 }
 
 void Camino::iniciarCursor(){
-
     this->cursor = 0;
-
 }
 
 void Camino::tirarElemento(string nombre){
-
     this-> iniciarCursor();
     this-> moverCursorAlUltimo();
-
     this-> obtenerElementoEnCursor()->agregarElemento(nombre);
-
 }
 
 bool Camino::levantarElemento(){
-
     this-> iniciarCursor();
     this-> moverCursorAlUltimo();
     return obtenerElementoEnCursor()->obtenerElemento();
-
 }
 
-void Camino::setIdentificador(){
-    ostringstream convertir;
-    for(int i = 0; i < 3; i++){
-        convertir << this->color[i];
-        this->identificador += convertir.str();
-    }
-}
+// void Camino::setIdentificador(){
+//     ostringstream convertir;
+//     for(int i = 0; i < 3; i++){
+//         convertir << this->color[i];
+//         this->identificador += convertir.str();
+//     }
+// }
 
 bool Camino::moverCursorAlSiguiente(){
     if (this->cursor == 0){
@@ -229,7 +206,7 @@ void Camino::marcarBifurcacion(char orientacion, string nombre){
     this-> obtenerElementoEnCursor()-> agregarBifurcacion(nombre, orientacion);
 }
 
-void Camino::marcarUnion(char orientacion, string nombre){
+void Camino::marcarUnion(string nombre){
     this-> iniciarCursor();
     this-> moverCursorAlUltimo();
     this-> obtenerElementoEnCursor()-> agregarUnion(nombre);

@@ -2,7 +2,6 @@
 
 using namespace std;
 
-
 Elemento::Elemento (string nombre){
     this->nombre = nombre;
     this->cantidad = 1;

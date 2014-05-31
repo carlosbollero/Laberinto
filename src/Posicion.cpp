@@ -4,14 +4,21 @@
 using namespace std;
 
 
-Posicion::Posicion(int coordX,int coordY,string identificador){
+Posicion::Posicion(int coordX,int coordY){
     this->coordX=coordX;
     this->coordY=coordY;
-    this->identificador=identificador;
+    //this->identificador=identificador;
     this->bifurcacion="";
     this->unionPosicion="";
     this->orientacionBifurcacion=0;
     this->elemento=0;
+}
+
+Posicion::~Posicion(){
+    bool hayElemento=(this->elemento!=0);
+    if(hayElemento){
+        delete this->elemento;
+    }
 }
 
 int Posicion::obtenerCoordX(){
@@ -22,11 +29,9 @@ int Posicion::obtenerCoordY(){
     return this->coordY;
 }
 
-
 void Posicion::modificarCoordX(int coordX){
     this->coordX=coordX;
 }
-
 
 void Posicion::modificarCoordY(int coordY){
     this->coordY=coordY;
@@ -49,7 +54,6 @@ void Posicion::agregarUnion(string unionPosicion){
     this->unionPosicion=unionPosicion;
 }
 
-
 void Posicion::agregarElemento(string nombreElemento){
     if(this->elemento != 0){
         delete this->elemento;
@@ -57,7 +61,6 @@ void Posicion::agregarElemento(string nombreElemento){
     Elemento* nuevoElemento = new Elemento(nombreElemento);
     this->elemento = nuevoElemento;
 }
-
 
 bool Posicion::obtenerElemento(){
     bool hayElemento=(this->elemento!=0);
@@ -71,13 +74,6 @@ string Posicion::obtenerIdentificador(){
     return this->identificador;
 }
 
-Posicion::~Posicion(){
-    bool hayElemento=(this->elemento!=0);
-    if(hayElemento){
-        delete this->elemento;
-    }
-}
-
 string Posicion::obtenerNombreElemento(){
 	if (this-> elemento != 0){
 		return this-> elemento-> getNombre();
@@ -86,7 +82,6 @@ string Posicion::obtenerNombreElemento(){
 	}
 }
 
-//      AGREGADO
 char Posicion::obtenerOrientacionBifurcacion(){
     return this-> orientacionBifurcacion;
 }
@@ -98,4 +93,3 @@ bool Posicion::tieneBifurcacion(){
 bool Posicion::tieneUnion(){
     return (this-> unionPosicion != "");
 }
-//   FIN AGREGADO

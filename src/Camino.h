@@ -4,74 +4,94 @@
 #include "tipos.h"
 #include "nodo.h"
 #include "Posicion.h"
-#include <string>
+//#include <string>
 #include <sstream>
 #include <iomanip>
 
 class Camino{
-
 private:
     NodoCamino* primero;
     NodoCamino* ultimo;
     NodoCamino* cursor;
     int* color;
-    string identificador;
     Posicion* xminimo;
     Posicion* xmaximo;
     Posicion* yminimo;
     Posicion* ymaximo;
     int longitud;
 
+    /*  Pre: Ninguna.
+        Post: Elimina el primer nodo del camino. */
     void eliminarPrimero();
+    /*  Pre: Posiciï¿½n de referencia debe ser no nula.
+        Post: Compara las coordenadas de la posiciï¿½n contra los mï¿½ximos y mï¿½nimos del camino.
+        En caso de resultar mayor o menor, actualiza las posiciones existentes con la nueva. */
     void compararCoordenadas(Posicion* posicionDeReferencia);
-
 public:
-    /* Pre: Los parámetros que definen el color deben ser válidos.
-     * Post: Setea las variables de camino en 0. */
-    Camino(int R, int G, int B); 
-    /* Post: Libera la memoria pedida para cada posición del camino y para
+    /* Pre: Los parï¿½metros que definen el color deben ser vï¿½lidos.
+     * Post: Setea las variables de camino en 0 y carga el color. */
+    Camino(int R, int G, int B);
+    /* Pre: Ninguna.
+       Post: Libera la memoria pedida para cada posiciï¿½n del camino y para
      * el color almacenado. */
-    ~Camino(); 
-    /* Post: Agrega un nodo posicion hacia orientacion deseada. */
-    void agregarPosicion(char orientacion); 
-    /* Post: Evalúa si el camino esta vacio. */
-    bool caminoVacio(); 
-
+    ~Camino();
+    /* Pre: La orientaciï¿½n debe ser vï¿½lida.
+     * Post: Agrega un nodo posicion hacia orientacion deseada. */
+    void agregarPosicion(char orientacion);
+    /* Pre: Ninguna.
+     * Post: Evalï¿½a si el camino esta vacio. */
+    bool caminoVacio();
+    /*  Pre: Ninguna.
+        Post: Devuelve el ancho total en posiciones del camino actual. */
     unsigned int obtenerAnchoTotal();
-
+    /*  Pre: Ninguna.
+        Post: Devuelve el ancho total en posiciones del camino actual. */
     unsigned int obtenerLargoTotal();
-
+    /*  Pre: Ninguna.
+        Post: Devuelve la coordenada X mï¿½nima del camino actual. */
     int obtenerXMinimo();
-
+    /*  Pre: Ninguna.
+        Post: Devuelve la coordenada X mï¿½xima del camino actual. */
     int obtenerXMaximo();
-
+    /*  Pre: Ninguna.
+        Post: Devuelve la coordenada Y mï¿½nima del camino actual. */
     int obtenerYMinimo();
-
+    /*  Pre: Ninguna.
+        Post: Devuelve la coordenada Y mï¿½xima del camino actual. */
     int obtenerYMaximo();
-
+    /*  Pre: Ninguna.
+        Post: Devuelve los colores RGB del camino. */
     int* obtenerColor();
-
+    /*  Pre: Ninguna.
+        Post: Retorna la cantidad total de posiciones del camino actual. */
     int obtenerTamanio();
-
+    /*  Pre: Ninguna.
+        Post: Inicia el cursor en una direcciï¿½n de memoria nula. */
     void iniciarCursor();
-
+    /*  Pre: El cursor debe estar apuntando a una direcciï¿½n de memoria vï¿½lida.
+        Post: Devuelve la posiciï¿½n almacenada en el nodo correspondiente. */
     Posicion* obtenerElementoEnCursor();
-
+    /*  Pre: Cursor iniciado.
+        Post: Mueve el cursor al nodo siguiente. */
     bool moverCursorAlSiguiente();
-
+    /*  Pre: Ninguna.
+        Post: Mueve el cursor al ï¿½ltimo nodo del camino. */
     void moverCursorAlUltimo();
-
+    /*  Pre: El elemento debe haberse levantado primero.
+        Post: Tira el elemento en la posiciï¿½n actual. */
     void tirarElemento(string nombre);
-
+    /*  Pre: Ninguna.
+        Post: Levanta un elemento. Devuelve True si habï¿½a un elemento en la posiciï¿½n.
+        Caso contrario devuele False. */
     bool levantarElemento();
-
-    void setIdentificador();
-
+    /*  Pre: Ninguna.
+        Post: Marca una bifurcaciï¿½n en la posiciï¿½n actual con su nombre y orientaciï¿½n. */
     void marcarBifurcacion(char orientacion, string nombre);
-
-    void marcarUnion(char orientacion, string nombre);
-
+    /*  Pre: Ninguna.
+        Post: Marca una uniï¿½n en la posiciï¿½n actual con su nombre. */
+    void marcarUnion(string nombre);
+    /*  Pre: Orientaciï¿½n vï¿½lida.
+        Post: Calcula las nuevas coordenadas en base a la orientaciï¿½n y a las coordenadas de la posiciï¿½n anterior. */
     void calcularCoordenadas(char orientacion, int &coordenadaX, int &coordenadaY);
-
 };
 #endif

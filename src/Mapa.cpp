@@ -10,7 +10,6 @@ Mapa::Mapa(Lista<Camino*>* caminosRecorridos, Lista<Lista<Posicion*>*>* listaBif
     this->caminos = caminosRecorridos;
     this->bifurcaciones = listaBifurcaciones;
     this->posicionesConElementos = elementos;
-
 }
 
 Mapa::~Mapa(){
@@ -26,51 +25,40 @@ void Mapa::calcularDimension(){
     int xmax = camino->obtenerXMaximo();
     int xmin = camino->obtenerXMinimo();
     int ymax = camino->obtenerYMaximo();
-    int ymin = camino->obtenerYMinimo();    
-
+    int ymin = camino->obtenerYMinimo();
     do{
-        camino = this->caminos->getCursor();
-        
-        if (xmax < camino->obtenerXMaximo()) {
+        camino = this->caminos->getCursor();        
+        if (xmax < camino->obtenerXMaximo()){
             xmax = camino->obtenerXMaximo();
-        }
-        
-        if (xmin > camino->obtenerXMinimo()) {
+        }        
+        if (xmin > camino->obtenerXMinimo()){
             xmin = camino->obtenerXMinimo();
-        }
-        
-        if (ymax < camino->obtenerYMaximo()) {
+        }        
+        if (ymax < camino->obtenerYMaximo()){
             ymax = camino->obtenerYMaximo();
-        }
-        
-        if (ymin > camino->obtenerYMinimo()) {
+        }        
+        if (ymin > camino->obtenerYMinimo()){
             ymin = camino->obtenerYMinimo();
         }
     }while (this->caminos->avanzarCursor());
     
-    //AGREGADO
     this-> xMaximo = xmax;
-    //FIN
 
     this->ancho = xmax - xmin;
     this->alto = ymax - ymin;
 }
 
 int Mapa::calcularPixelDeInicio(int coordenada){
-
     int posicionPixel = coordenada;
     switch(coordenada){
         case 0:  posicionPixel = 0;
         break;
         default:    posicionPixel = (posicionPixel*11);
     }
-
     return posicionPixel;
-
 }
 
 void Mapa::dibujarCelda(int coordenadaX, int coordenadaY, RGBApixel &colorCamino){
-
     for(int i = calcularPixelDeInicio(coordenadaX); i <= calcularPixelDeInicio(coordenadaX)+9; i++){
         for(int j = calcularPixelDeInicio(coordenadaY); j <= calcularPixelDeInicio(coordenadaY)+9; j++){
             this->grafico->SetPixel(i, j, colorCamino);
@@ -78,10 +66,7 @@ void Mapa::dibujarCelda(int coordenadaX, int coordenadaY, RGBApixel &colorCamino
     }
 }
 
-//  AGREGADO
-
 void Mapa::dibujarBifurcacion(int coordenadaX, int coordenadaY){
-
     RGBApixel colorBifurcacion;
     colorBifurcacion.Red = 033;
     colorBifurcacion.Green = 033;
@@ -94,10 +79,7 @@ void Mapa::dibujarBifurcacion(int coordenadaX, int coordenadaY){
     }
 }
 
-//  FIN AGREGADO
-
 void Mapa::escribirCamino(Camino* caminoAEscribir){
-
     int* colores = caminoAEscribir->obtenerColor();
 
     RGBApixel colorCamino;
@@ -110,18 +92,11 @@ void Mapa::escribirCamino(Camino* caminoAEscribir){
     
     while(caminoAEscribir->moverCursorAlSiguiente()){
         posicionActual = caminoAEscribir->obtenerElementoEnCursor();
-        //AGREGADO
-        //if (posicionActual-> tieneBifurcacion()){
-        //    dibujarBifurcacion(posicionActual->obtenerCoordX(), posicionActual->obtenerCoordY());
-        //FIN
-        //}else{
-            dibujarCelda(posicionActual->obtenerCoordX(), posicionActual->obtenerCoordY(), colorCamino);
-        //}
+        dibujarCelda(posicionActual->obtenerCoordX(), posicionActual->obtenerCoordY(), colorCamino);
     }
 }
 
 void Mapa::escribirElementosEnMapa(Lista<Posicion*>* posicionesConElementos){
-
     int tamanioFuente = 8;
 
     RGBApixel colorFuente;
@@ -142,20 +117,15 @@ void Mapa::escribirElementosEnMapa(Lista<Posicion*>* posicionesConElementos){
         const char* nombreAEscribir = nombreElemento.c_str();
 
         PrintString(*(this->grafico), (char*)nombreAEscribir, calcularPixelDeInicio(coordenadaX), calcularPixelDeInicio(coordenadaY), tamanioFuente, colorFuente);
-        //PrintString(*(this->grafico), (char*)nombreAEscribir, coordenadaX, coordenadaY, tamanioFuente, colorFuente);
 
     }while(posicionesConElementos->avanzarCursor());
 }
 
 void Mapa::escribirMapa(){
     this->calcularDimension();
-    //-----------------------------------------AGREGADO
     this->buscarCaminosNoBifurcados();
-    this->calcularDimension();
-    //-----------------------------------------FIN
     this->buscarCoordenadasLimites();
     this->grafico->SetSize((this->ancho)*14, (this->alto)*14);
-    //Lista<Posicion*>* posicionesConElementos = new Lista<Posicion*>;
     caminos->iniciarCursor();
     Camino* caminoActual;
     do {
@@ -171,11 +141,8 @@ void Mapa::buscarCoordenadasLimites () {
     int xMin;
     int yMin;
     Camino* caminoActual = this->caminos->getCursor();
-    //xMax = caminoActual->obtenerXMaximo ();
     xMin = caminoActual->obtenerXMinimo ();
-    //yMax = caminoActual->obtenerYMaximo ();
     yMin = caminoActual->obtenerYMinimo ();
-    //Camino* caminoActual;
     do{
         caminoActual = this->caminos->getCursor();
         if (caminoActual->obtenerXMinimo () < xMin) {
@@ -223,8 +190,6 @@ void Mapa::modificarCoordenadas (int minX,int minY){
     }while (this-> caminos-> avanzarCursor());
 }
 
-
-//----------------------------------------------AGREGADO
 void Mapa::buscarCaminosNoBifurcados(){
     this-> caminos-> iniciarCursor();
     Camino* caminoActual;
@@ -241,8 +206,8 @@ void Mapa::buscarCaminosNoBifurcados(){
             this-> moverCaminoEnX(caminoActual);
         }
     }while (this-> caminos-> avanzarCursor());
+    this->calcularDimension();
 }
-
 
 void Mapa::moverCaminoEnX(Camino* camino){
     camino-> iniciarCursor();
@@ -254,4 +219,3 @@ void Mapa::moverCaminoEnX(Camino* camino){
     }
 
 }
-//----------------------------------------------FIN

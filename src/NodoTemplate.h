@@ -3,16 +3,26 @@
 
 template <class T>
 class Nodo{
-    private:
-        T dato;
-        Nodo<T>* siguiente;
+private:
+    T dato;
+    Nodo<T>* siguiente;
 
-    public:
-        Nodo(T dato);
-        ~Nodo();
-        T obtenerDato();
-        Nodo<T>* obtenerSiguiente();
-        void asignarSiguiente(Nodo<T>* nodoSiguiente);
+public:
+    /* Pre:
+     * Post: Se crea un nodo con definiendo dato. */
+    Nodo(T dato);
+    /* Pre:
+     * Post:  */        
+    ~Nodo();
+    /* Pre:
+     * Post: Devuelve lo almacenado en dato. */
+    T obtenerDato();
+    /* Pre:
+     * Post: Devuelve el siguiente nodo apuntado, o NULL. */
+    Nodo<T>* obtenerSiguiente();
+    /* Pre: nodoSiguiente debe haber sido creado previamente.
+     * Post: Define el valor de siguiente asignandole el nodo recibido. */
+    void asignarSiguiente(Nodo<T>* nodoSiguiente);
 
 };
 

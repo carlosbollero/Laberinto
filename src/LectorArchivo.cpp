@@ -8,9 +8,7 @@
 
 LectorArchivo::LectorArchivo(string ruta){
 	this-> ruta = ruta;
-
 	this-> archivo = new Tarchivo;
-
 	this-> archivo-> open(this-> ruta.c_str());
 }
 
@@ -28,7 +26,6 @@ string LectorArchivo::getPalabra(){
 	if (this-> esComentario()){
 		*archivo >> this->palabra;
 	}
-	//cout << this-> palabra << endl;
 	return this-> palabra;
 }
 

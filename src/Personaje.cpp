@@ -36,8 +36,7 @@ void Personaje::avanzar(unsigned int cantidad){
 		cantidad--;
 	}
 	for (unsigned int i = 0; i < cantidad; i++){
-		this-> camino-> agregarPosicion(this-> orientacion);
-		
+		this-> camino-> agregarPosicion(this-> orientacion);		
 		this-> camino-> moverCursorAlUltimo();
 		this-> posicionActual = this-> camino-> obtenerElementoEnCursor();
 	}
@@ -49,7 +48,6 @@ void Personaje::levantarElemento(string nombre){
 
 void Personaje::tirarElemento(string nombre){
 	this-> mochila-> eliminarElemento(nombre);
-
 }
 
 Posicion* Personaje::getPosicionActual(){

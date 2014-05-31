@@ -1,10 +1,7 @@
-
-
 #include "nodo.h"
 
-
-NodoCamino::NodoCamino (int coordenadaX , int coordenadaY, string identificador){
-	this-> dato = new Posicion(coordenadaX, coordenadaY, identificador);
+NodoCamino::NodoCamino (int coordenadaX , int coordenadaY){
+	this-> dato = new Posicion(coordenadaX, coordenadaY);
 	this-> siguiente = 0;
 	this-> anterior = 0;
 }
@@ -24,7 +21,6 @@ void NodoCamino::setAnterior(NodoCamino * anterior){
 void NodoCamino::setSiguiente(NodoCamino *siguiente){
 	this-> siguiente = siguiente;
 }
-
 
 Posicion* NodoCamino::getDato(){
 	return dato;

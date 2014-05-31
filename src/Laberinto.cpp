@@ -1,13 +1,7 @@
-/*
- * Laberinto.cpp
- *
- *  Created on: 15/05/2014
- *      Author: Maxi
- */
 #include "Laberinto.h"
 
 Laberinto::Laberinto(){
-	//this-> mensajeBienvenida();
+	this-> mensajeBienvenida();
 	cout << endl;
 	string ruta;
 	cout << "Ingrese la ruta del archivo de texto" << endl;
@@ -71,7 +65,7 @@ void Laberinto::operar(){
 			this-> personaje-> avanzar(1);
 			this-> unidadesRecorridas += 1;
 
-		}else if (operacion == "PLL"){
+		//}else if (operacion == "PLL"){
 			//cout << "fin camino";
 		}
 	}
@@ -147,13 +141,9 @@ void Laberinto::operacionBifurcar(string operacion){
 }
 
 void Laberinto::operacionUnir(string operacion){
-	this-> caminoActual-> marcarUnion(this-> personaje-> getOrientacion(), this-> lector-> getPalabra());
+	this-> caminoActual-> marcarUnion(this-> lector-> getPalabra());
 	this-> reordenarCoordenadas();
 }
-
-// void Laberinto::operacionLlegada(){
-//
-// }
 
 void Laberinto::reordenarCoordenadas(){
 	string nombreBuscado = this-> caminoActual-> obtenerElementoEnCursor()-> obtenerUnion();
@@ -223,7 +213,7 @@ void Laberinto::generarInforme(){
 	this-> mochila-> iniciarCursor();
 	while (this-> mochila->moverCursorAlSiguiente()){
 		cout << "    ";
-		cout << this-> mochila-> obtenerElementoEnCursor()-> getNombre() << ' ';
+		cout << this-> mochila-> obtenerElementoEnCursor()-> getNombre() << "   ";
 		cout << this-> mochila-> obtenerElementoEnCursor()-> getCantidad() << endl;
 	}
 	cout << endl;
@@ -247,7 +237,7 @@ void Laberinto::mensajeBienvenida(){
 	cout << "    Angel, Ignacio" << endl << "    Botalla, Tomas" << endl;
 	cout << "    Bollero, Carlos" << endl;
 	cout << "    Mena, Mohamed David" << endl << "    Olivera, Rodrigo" << endl;
-	for (unsigned int i = 1; i < 5; i++){
+	for (unsigned int i = 1; i < 4; i++){
 		cout << endl;
 	}
 	cout << "     ************************* (Presione ENTER) *************************" << endl;

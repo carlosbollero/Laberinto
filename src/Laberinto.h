@@ -19,7 +19,6 @@ private:
 	Mochila* mochila;
 	Mapa* mapa;
 
-	// INFORME
 	unsigned int unidadesRecorridas;
 	unsigned int cantidadGiros;
 	unsigned int cantidadBifurcaciones;
@@ -29,19 +28,13 @@ private:
     Lista<Lista<Posicion*>*>* bifurcaciones;
     Lista<Posicion*>* posicionesConElemento;
 
-    // MÉTODOS PRIVADOS
-
 	/* Pre: 
 	 * Post: Imprime un mensaje de bienvenida en pantalla. */
 	void mensajeBienvenida();
 	/* Pre: 
-	 * Post: En base a la coordenada de la union, revisa si coincide con alguna
-	 * bifurcación en la lista de bifurcaciones. En caso afirmativo, toma la 
-	 * coordenada de la bifurcación, pronostica qué coordenada le debería 
-	 * corresponder a la unión y calcula la diferencia entre las coordenadas de
-	 * la unión y la esperada. Con esa diferencia recorre todo el camino 
-	 * sumandosela a cada posición hasta la unión; quedando así ambos caminos
-	 * con el mismo sistema de coordenadas. */
+	 * Post: En base a las coordenadas de la bifurcación con nombre coincidente
+	 * con la unión del camino actual, reordena este con coordenadas relativas 
+	 * al camino que contiene la bifurcación. */
 	void reordenarCoordenadas();
 	/* Pre: El parámetro recibido debe ser una opcíon válida.
 	 * Post: Da inicio a un nuevo camino con el color determinado em el archivo

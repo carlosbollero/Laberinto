@@ -11,7 +11,7 @@ GO
 A 11
 GS
 A 8
-BE ROJO-NARANJA-1
+BO ROJO-NARANJA-1
 A 7
 GE
 A 15
@@ -86,7 +86,7 @@ L Celular
 A 1
 L Ficha
 A 1
-L GErra
+L Gerra
 A 14
 BS AZUL-ROSA-1
 A 7
@@ -106,7 +106,7 @@ L Lapiz
 A 20
 T Ficha
 A 5
-T GErra
+T Gerra
 A 7
 GO
 A 9
@@ -114,7 +114,7 @@ GS
 A 3
 PLL
 ------------------------Naranja------------------------
-PP 255 174 201
+PP 255 159 63
 GE
 A 4
 GS
@@ -177,7 +177,7 @@ GE
 A 1
 GS
 A 5
-U AZUL-ROSA-1
+U AZUL-ROSA-2
 GE
 A 10
 GS
@@ -189,7 +189,7 @@ A 2
 GE
 A 7
 GS
-A 2
+A 1
 U ROJO-ROSA-2
 GE
 A 24
@@ -198,7 +198,7 @@ A 2
 GE
 A 9
 GN
-A 4
+A 3
 U NARANJA-ROSA-1
 GE
 A 12
